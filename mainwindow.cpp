@@ -52,7 +52,7 @@ void MainWindow::on_pushButton_clicked()
 {
     if (ui->createEnable->isEnabled())
     {
-        QDateTime fileDateTime(ui->dateCreated->date(),ui->timeCreated->time());
+        QDateTime fileDateTime(ui->dateCreated->date(),ui->timeCreated->time(), Qt::UTC);
         file->open(QIODevice::ReadWrite);
         file->setFileTime(fileDateTime, QFileDevice::FileBirthTime);
         file->close();
@@ -60,7 +60,7 @@ void MainWindow::on_pushButton_clicked()
 
     if (ui->changeEnable->isEnabled())
     {
-        QDateTime fileDateTime(ui->dateChanged->date(),ui->timeChanged->time());
+        QDateTime fileDateTime(ui->dateChanged->date(),ui->timeChanged->time(), Qt::UTC);
         file->open(QIODevice::ReadWrite);
         file->setFileTime(fileDateTime, QFileDevice::FileModificationTime);
         file->close();
@@ -68,7 +68,7 @@ void MainWindow::on_pushButton_clicked()
 
     if (ui->acessEnable->isEnabled())
     {
-        QDateTime fileDateTime(ui->dateOpened->date(),ui->timeOpened->time());
+        QDateTime fileDateTime(ui->dateOpened->date(),ui->timeOpened->time(), Qt::UTC);
         file->open(QIODevice::ReadWrite);
         file->setFileTime(fileDateTime, QFileDevice::FileAccessTime);
         file->close();
