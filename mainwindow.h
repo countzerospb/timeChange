@@ -32,5 +32,6 @@ private:
     Ui::MainWindow *ui;
     QFileSystemModel *filemodel;
     QFile *file;
+    // test
 };
 #endif // MAINWINDOW_H
