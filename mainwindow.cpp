@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "QDebug"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -35,7 +34,6 @@ void MainWindow::on_treeView_clicked(const QModelIndex &index)
     file = new QFile(filemodel->filePath(index));
 
     QDateTime fileDateTime = file->fileTime(QFileDevice::FileBirthTime);
-    qDebug()<<file->fileTime(QFileDevice::FileBirthTime);
     ui->dateCreated->setDate(fileDateTime.date());
     ui->timeCreated->setTime(fileDateTime.time());
 
